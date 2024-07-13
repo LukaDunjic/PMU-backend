@@ -1,7 +1,7 @@
 package kviz.etf.bg.ac.rs.questions.model;
 
 import jakarta.persistence.*;
-import kviz.etf.bg.ac.rs.sections.SectionEntity;
+import kviz.etf.bg.ac.rs.sections.model.SectionEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

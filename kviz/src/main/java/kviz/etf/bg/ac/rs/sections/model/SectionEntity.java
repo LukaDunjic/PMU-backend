@@ -1,7 +1,6 @@
-package kviz.etf.bg.ac.rs.sections;
+package kviz.etf.bg.ac.rs.sections.model;
 
 import jakarta.persistence.*;
-import kviz.etf.bg.ac.rs.questions.dto.QuestionDto;
 import kviz.etf.bg.ac.rs.questions.model.QuestionsEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,4 +26,5 @@ public class SectionEntity {
 
     @OneToMany(mappedBy = "section", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<QuestionsEntity> questionsEntityList;
+
 }

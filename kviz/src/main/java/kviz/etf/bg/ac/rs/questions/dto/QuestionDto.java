@@ -2,9 +2,12 @@ package kviz.etf.bg.ac.rs.questions.dto;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class QuestionDto {
     Integer qId;
     String questions;
-    AnswersDto answersDto;
+    Integer section;
+    List<AnswersDto> answersDto;
 }
