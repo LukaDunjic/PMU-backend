@@ -15,11 +15,12 @@ public class AnswerAdapter {
         answersDto.setQId(answersEntity.getAnswerId());
         answersDto.setAnswer(answersEntity.getBody());
         answersDto.setIsCorrect(answersEntity.getIsTrue());
+        answersDto.setAnswerId(answersEntity.getAnswerId());
 
         return answersDto;
     }
 
-    public static List<AnswersDto> convertEntityListToDtoList(List<AnswersEntity> answersEntityList) {
+    public static List<AnswersDto> convertEntityToDtoList(List<AnswersEntity> answersEntityList) {
 
         List<AnswersDto> answersDtoList = new ArrayList<>();
 
@@ -28,5 +29,27 @@ public class AnswerAdapter {
         });
 
         return answersDtoList;
+    }
+
+    public static AnswersEntity convertDtoToEntity(AnswersDto answersDto) {
+
+        AnswersEntity answersEntity = new AnswersEntity();
+
+        answersEntity.setAnswerId(answersDto.getAnswerId());
+        answersEntity.setBody(answersDto.getAnswer());
+        answersEntity.setIsTrue(answersDto.getIsCorrect());
+
+        return answersEntity;
+    }
+
+    public static List<AnswersEntity> convertDtoToEntityList(List<AnswersDto> answersDtoList) {
+
+        List<AnswersEntity> answersEntityList = new ArrayList<>();
+
+        answersDtoList.forEach(element -> {
+            answersEntityList.add(convertDtoToEntity(element));
+        });
+
+        return answersEntityList;
     }
 }

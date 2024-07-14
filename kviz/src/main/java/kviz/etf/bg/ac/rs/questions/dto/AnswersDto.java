@@ -7,4 +7,5 @@ public class AnswersDto {
     String answer;
     Integer qId;
     Boolean isCorrect;
+    Integer answerId;
 }

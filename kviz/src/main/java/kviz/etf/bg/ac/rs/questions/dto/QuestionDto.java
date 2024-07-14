@@ -1,5 +1,6 @@
 package kviz.etf.bg.ac.rs.questions.dto;
 
+import kviz.etf.bg.ac.rs.sections.dto.SectionDto;
 import lombok.Data;
 
 import java.util.List;
@@ -8,6 +9,6 @@ import java.util.List;
 public class QuestionDto {
     Integer qId;
     String questions;
-    Integer section;
+    SectionDto section;
     List<AnswersDto> answersDto;
 }
