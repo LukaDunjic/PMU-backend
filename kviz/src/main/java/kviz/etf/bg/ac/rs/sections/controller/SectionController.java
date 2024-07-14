@@ -7,9 +7,7 @@ import kviz.etf.bg.ac.rs.sections.dto.SectionDto;
 import kviz.etf.bg.ac.rs.sections.model.SectionEntity;
 import kviz.etf.bg.ac.rs.sections.repository.SectionRepository;
 import kviz.etf.bg.ac.rs.sections.service.SectionService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,19 +23,19 @@ public class SectionController {
         return sectionService.getAllSections();
     }
 
-    @GetMapping(value = "/newSection")
+    @PostMapping(value = "/newSection")
     @Operation(summary = "Creating new section")
-    public PmuResponse<SectionDto> createSection(SectionDto sectionDto){
+    public PmuResponse<SectionDto> createSection(@RequestBody SectionDto sectionDto){
         return sectionService.addSection(sectionDto);
     }
 
-    @GetMapping(value = "/getUserSection")
+    @GetMapping(value = "/getUserSection/{userId}")
     @Operation(summary = "Getting section for user")
     public PmuResponse<List<SectionDto>> getUserSections(Integer userId){
         return null;
     }
 
-    @GetMapping(value = "/deleteSection")
+    @DeleteMapping(value = "/deleteSection")
     public PmuResponse<SectionDto> deleteSection(Integer sectionId){
         return sectionService.deleteSection(sectionId);
     }
