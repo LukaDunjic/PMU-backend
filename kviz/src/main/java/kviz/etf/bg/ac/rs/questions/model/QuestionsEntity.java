@@ -18,16 +18,16 @@ import java.util.List;
 public class QuestionsEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "questionId")
+    @Column(name = "question_id")
     private Integer questionId;
 
     @Column(name = "questionBody")
     private String questionBody;
 
-    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "questionEntity", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<AnswersEntity> answersEntityList;
 
     @ManyToOne
-    @JoinColumn(name = "sectionId")
+    @JoinColumn(name = "section_id")
     private SectionEntity section;
 }

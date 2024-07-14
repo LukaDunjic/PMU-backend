@@ -7,6 +7,7 @@ import kviz.etf.bg.ac.rs.sections.dto.SectionDto;
 import kviz.etf.bg.ac.rs.sections.model.SectionEntity;
 import kviz.etf.bg.ac.rs.sections.repository.SectionRepository;
 import kviz.etf.bg.ac.rs.sections.service.SectionService;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/sections")
 @Tag(name = "Section controller", description = "Rest APIs related to section.")
+@AllArgsConstructor
 public class SectionController {
 
     SectionService sectionService;

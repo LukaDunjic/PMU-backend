@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001
+      author: byDL
+      changes:
+        - sqlFile:
+            encoding: UTF-8
+            path: db/changes/001_create_section_table.sql
+
+  - changeSet:
+      id: 002
+      author: byDL
+      changes:
+        - sqlFile:
+            encoding: UTF-8
+            path: db/changes/002_create_question_table.sql
+
+  - changeSet:
+      id: 003
+      author: byDL
+      changes:
+        - sqlFile:
+            encoding: UTF-8
+            path: db/changes/003_create_answer_table.sql

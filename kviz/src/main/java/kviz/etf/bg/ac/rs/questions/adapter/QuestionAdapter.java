@@ -35,7 +35,7 @@ public class QuestionAdapter {
 
         questionsEntity.setQuestionBody(questionDto.getQuestions());
         questionsEntity.setSection(SectionAdapter.convertDtoToEntity(questionDto.getSection()));
-        questionsEntity.setAnswersEntityList(AnswerAdapter.convertDtoToEntityList(questionDto.getAnswersDto()));
+        if(questionDto.getAnswersDto() != null)questionsEntity.setAnswersEntityList(AnswerAdapter.convertDtoToEntityList(questionDto.getAnswersDto()));
 
         return questionsEntity;
     }

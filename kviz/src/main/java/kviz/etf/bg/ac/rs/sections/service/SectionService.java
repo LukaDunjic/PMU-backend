@@ -14,7 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class SectionService {
 
-    SectionRepository sectionRepository;
+    final SectionRepository sectionRepository;
 
     public PmuResponse<List<SectionDto>> getAllSections(){
 

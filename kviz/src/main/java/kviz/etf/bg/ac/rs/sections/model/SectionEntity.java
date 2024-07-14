@@ -18,7 +18,7 @@ import java.util.List;
 public class SectionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "sectionId")
+    @Column(name = "section_id")
     private Integer sectionId;
 
     @Column(name = "name")

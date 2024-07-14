@@ -16,7 +16,7 @@ import java.util.Random;
 @RequiredArgsConstructor
 public class QuestionService {
 
-    QuestionRepository questionRepository;
+    final QuestionRepository questionRepository;
 
     public List<QuestionDto> getAllQuestions() {
         List<QuestionsEntity> questionsEntityList = questionRepository.getAllQuestions();

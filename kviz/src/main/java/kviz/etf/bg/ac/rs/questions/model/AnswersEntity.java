@@ -15,7 +15,7 @@ import lombok.Setter;
 public class AnswersEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "answerId")
+    @Column(name = "answer_id")
     private Integer answerId;
 
     @Column(name = "body")
@@ -25,7 +25,7 @@ public class AnswersEntity {
     private Boolean isTrue;
 
     @ManyToOne
-    @JoinColumn(name = "questionId", nullable = false)
+    @JoinColumn(name = "question_id", nullable = false)
     private QuestionsEntity questionEntity;
 
 }
