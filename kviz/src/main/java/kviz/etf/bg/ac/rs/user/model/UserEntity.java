@@ -1,10 +1,13 @@
 package kviz.etf.bg.ac.rs.user.model;
 
 import jakarta.persistence.*;
+import kviz.etf.bg.ac.rs.chatroom.model.ChatroomEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Table(name = "user")
@@ -29,4 +32,7 @@ public class UserEntity {
 
     @Column(name = "surname")
     private String surname;
+
+    @OneToMany(mappedBy = "chatroomEntity", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ChatroomEntity> chatroomEntityList;
 }
