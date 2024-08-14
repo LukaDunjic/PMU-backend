@@ -2,10 +2,8 @@ package kviz.etf.bg.ac.rs.sections.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import kviz.etf.bg.ac.rs.Response.PmuResponse;
+import kviz.etf.bg.ac.rs.response.PmuResponse;
 import kviz.etf.bg.ac.rs.sections.dto.SectionDto;
-import kviz.etf.bg.ac.rs.sections.model.SectionEntity;
-import kviz.etf.bg.ac.rs.sections.repository.SectionRepository;
 import kviz.etf.bg.ac.rs.sections.service.SectionService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;

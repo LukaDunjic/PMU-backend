@@ -1,6 +1,6 @@
 package kviz.etf.bg.ac.rs.sections.service;
 
-import kviz.etf.bg.ac.rs.Response.PmuResponse;
+import kviz.etf.bg.ac.rs.response.PmuResponse;
 import kviz.etf.bg.ac.rs.sections.adapter.SectionAdapter;
 import kviz.etf.bg.ac.rs.sections.dto.SectionDto;
 import kviz.etf.bg.ac.rs.sections.model.SectionEntity;

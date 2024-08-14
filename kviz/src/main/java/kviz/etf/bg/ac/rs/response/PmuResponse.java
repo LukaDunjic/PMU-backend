@@ -1,4 +1,4 @@
-package kviz.etf.bg.ac.rs.Response;
+package kviz.etf.bg.ac.rs.response;
 
 import lombok.Data;
 

@@ -1,6 +1,6 @@
 package kviz.etf.bg.ac.rs.questions.controller;
 
-import kviz.etf.bg.ac.rs.Response.PmuResponse;
+import kviz.etf.bg.ac.rs.response.PmuResponse;
 import kviz.etf.bg.ac.rs.questions.dto.QuestionDto;
 import kviz.etf.bg.ac.rs.questions.service.QuestionService;
 import org.springframework.web.bind.annotation.*;
