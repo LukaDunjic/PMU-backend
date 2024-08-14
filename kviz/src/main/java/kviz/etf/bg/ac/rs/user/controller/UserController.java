@@ -1,4 +1,4 @@
-package kviz.etf.bg.ac.rs.user;
+package kviz.etf.bg.ac.rs.user.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
