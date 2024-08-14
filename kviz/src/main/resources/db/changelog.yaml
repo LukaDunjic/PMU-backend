@@ -36,3 +36,10 @@ databaseChangeLog:
         - sqlFile:
             encoding: UTF-8
             path: db/changes/005_create_chatroom_table.sql
+  - changeSet:
+      id: 006
+      author: byDL
+      changes:
+        - sqlFile:
+            encoding: UTF-8
+            path: db/changes/006_create_membership_table.sql
