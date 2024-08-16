@@ -43,3 +43,24 @@ databaseChangeLog:
         - sqlFile:
             encoding: UTF-8
             path: db/changes/006_create_membership_table.sql
+  - changeSet:
+      id: 007
+      author: byDL
+      changes:
+        - sqlFile:
+            encoding: UTF-8
+            path: db/changes/007_create_quiz_table.sql
+  - changeSet:
+      id: 008
+      author: byDL
+      changes:
+        - sqlFile:
+            encoding: UTF-8
+            path: db/changes/008_create_participation_table.sql
+  - changeSet:
+      id: 009
+      author: byDL
+      changes:
+        - sqlFile:
+            encoding: UTF-8
+            path: db/changes/009_create_questions_for_quiz_table.sql

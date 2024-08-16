@@ -33,6 +33,6 @@ public class UserEntity {
     @Column(name = "surname")
     private String surname;
 
-    @OneToMany(mappedBy = "chatroomEntity", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ChatroomEntity> chatroomEntityList;
 }
