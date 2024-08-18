@@ -12,7 +12,7 @@ public class AnswerAdapter {
 
         AnswersDto answersDto = new AnswersDto();
 
-        answersDto.setQId(answersEntity.getAnswerId());
+        answersDto.setQId(answersEntity.getQuestionEntity().getQuestionId());
         answersDto.setAnswer(answersEntity.getBody());
         answersDto.setIsCorrect(answersEntity.getIsTrue());
         answersDto.setAnswerId(answersEntity.getAnswerId());

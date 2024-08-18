@@ -37,4 +37,8 @@ public class ChatroomService {
         return "Success.";
     }
 
+    public Boolean isOwner(Integer userId, Integer chatroomId){
+        return chatroomRepository.isOwner(userId, chatroomId)!=null;
+    }
+
 }

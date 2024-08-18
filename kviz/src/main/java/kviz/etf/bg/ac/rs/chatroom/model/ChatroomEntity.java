@@ -1,12 +1,14 @@
 package kviz.etf.bg.ac.rs.chatroom.model;
 
 import jakarta.persistence.*;
-import kviz.etf.bg.ac.rs.sections.model.SectionEntity;
+import kviz.etf.bg.ac.rs.quiz.model.QuizEntity;
 import kviz.etf.bg.ac.rs.user.model.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Table(name = "chatroom")
@@ -27,4 +29,6 @@ public class ChatroomEntity {
     @JoinColumn(name = "owner")
     private UserEntity owner;
 
+    @OneToMany(mappedBy = "chatroom", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<QuizEntity> quizEntityList;
 }

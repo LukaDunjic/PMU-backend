@@ -31,11 +31,12 @@ public class QuestionsController {
         return pmuResponse;
     }
 
-    @GetMapping(value = "/generateTenQuestions/{numberOfQuestions}/{section}")
+    @GetMapping(value = "/generateTenQuestions/{chatroomId}/{section}/{userId}")
     @Operation(summary = "Generating ten questions")
-    public PmuResponse<List<QuestionDto>> generateQuestions(@PathVariable Integer numberOfQuestions, @PathVariable Integer section) {
-
-        List<QuestionDto> questionDtoList = questionService.generateQuestions(numberOfQuestions, section);
+    public PmuResponse<List<QuestionDto>> generateQuestionsRandom(@PathVariable Integer chatroomId, @PathVariable Integer section,
+                                                                  @PathVariable Integer userId) {
+        //Integer section, Integer chatroomId, Integer userId
+        List<QuestionDto> questionDtoList = questionService.generateQuestions(section, chatroomId, userId);
 
         PmuResponse<List<QuestionDto>> pmuResponse = new PmuResponse<>();
         pmuResponse.setIsValid(true);
@@ -44,13 +45,14 @@ public class QuestionsController {
         return pmuResponse;
     }
 
-    @GetMapping(value = "/addQuestionsInSection")
+    @PostMapping(value = "/addQuestionsInSection")
     @Operation(summary = "Adding question")
     public PmuResponse<QuestionDto> addQuestionInSection(@RequestBody QuestionDto questionDto) {
 
-        questionService.addQuestion(questionDto);
+        QuestionDto questionDto1 = questionService.addQuestion(questionDto);
 
         PmuResponse<QuestionDto> pmuResponse = new PmuResponse<>();
+        pmuResponse.setDto(questionDto1);
         pmuResponse.setIsValid(true);
 
         return pmuResponse;

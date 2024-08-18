@@ -21,7 +21,7 @@ public class QuestionsEntity {
     @Column(name = "question_id")
     private Integer questionId;
 
-    @Column(name = "questionBody")
+    @Column(name = "question_body")
     private String questionBody;
 
     @OneToMany(mappedBy = "questionEntity", cascade = CascadeType.ALL, orphanRemoval = true)

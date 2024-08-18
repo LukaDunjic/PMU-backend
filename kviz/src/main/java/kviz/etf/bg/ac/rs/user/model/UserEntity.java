@@ -2,6 +2,7 @@ package kviz.etf.bg.ac.rs.user.model;
 
 import jakarta.persistence.*;
 import kviz.etf.bg.ac.rs.chatroom.model.ChatroomEntity;
+import kviz.etf.bg.ac.rs.participation.model.ParticipationEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,4 +36,7 @@ public class UserEntity {
 
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ChatroomEntity> chatroomEntityList;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ParticipationEntity> participationEntityList;
 }

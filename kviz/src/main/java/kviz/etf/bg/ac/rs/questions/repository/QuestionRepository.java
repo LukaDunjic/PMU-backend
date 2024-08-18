@@ -15,6 +15,6 @@ public interface QuestionRepository extends JpaRepository<QuestionsEntity, Integ
     @Query("SELECT qe FROM QuestionsEntity qe WHERE qe.questionId = ?1")
     QuestionsEntity getById (@Param("qId") Integer qId);
 
-    @Query("SELECT qe FROM QuestionsEntity qe WHERE qe.section = ?1")
+    @Query("SELECT qe FROM QuestionsEntity qe WHERE qe.section.sectionId = ?1")
     List<QuestionsEntity> getAllQuestionsBySection(@Param("section") Integer section);
 }
