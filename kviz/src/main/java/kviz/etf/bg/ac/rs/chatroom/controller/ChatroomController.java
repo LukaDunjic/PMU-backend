@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/chatrooms")
 @Tag(name = "Chatroom controller.", description = "Rest APIs related to chatroom.")
 @AllArgsConstructor
+@CrossOrigin(origins = "*")
 public class ChatroomController {
 
     final ChatroomService chatroomService;

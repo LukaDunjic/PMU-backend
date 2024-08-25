@@ -15,6 +15,7 @@ import java.util.List;
 @RequestMapping(value = "/participations")
 @Tag(name = "Participation controller.", description = "Rest APIs related to participation.")
 @AllArgsConstructor
+@CrossOrigin(origins = "*")
 public class ParticipationController {
 
     final ParticipationService participationService;

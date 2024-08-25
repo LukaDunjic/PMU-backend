@@ -14,6 +14,7 @@ import java.util.List;
 @RequestMapping(value = "/questions")
 @Tag(name = "Questions controller", description = "Rest APIs related to questions")
 @AllArgsConstructor
+@CrossOrigin(origins = "*") // Dopušta CORS samo za ovaj origin
 public class QuestionsController {
 
     QuestionService questionService;

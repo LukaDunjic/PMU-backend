@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/users")
 @Tag(name = "User Controller", description = "Rest APIs related to users.")
 @AllArgsConstructor
+@CrossOrigin(origins = "*") // Dopušta CORS samo za ovaj origin
 public class UserController {
 
     final UserService userService;

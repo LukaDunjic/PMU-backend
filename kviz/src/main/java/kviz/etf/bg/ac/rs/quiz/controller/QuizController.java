@@ -7,10 +7,7 @@ import kviz.etf.bg.ac.rs.quiz.dto.QuizDto;
 import kviz.etf.bg.ac.rs.quiz.service.QuizService;
 import kviz.etf.bg.ac.rs.response.PmuResponse;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,6 +15,7 @@ import java.util.List;
 @RequestMapping(value = "/quiz")
 @Tag(name = "Quiz controller.", description = "Rest APIs related to quiz.")
 @AllArgsConstructor
+@CrossOrigin(origins = "*") // Dopušta CORS samo za ovaj origin
 public class QuizController {
 
     final QuizService quizService;

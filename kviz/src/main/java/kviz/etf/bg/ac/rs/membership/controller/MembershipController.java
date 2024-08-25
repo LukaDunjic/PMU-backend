@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/membership")
 @Tag(name = "Membership controller.", description = "Rest APIs related to membership.")
 @AllArgsConstructor
+@CrossOrigin(origins = "*")
 public class MembershipController {
 
     final MembershipService membershipService;

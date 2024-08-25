@@ -14,6 +14,7 @@ import java.util.List;
 @RequestMapping(value = "/sections")
 @Tag(name = "Section controller", description = "Rest APIs related to section.")
 @AllArgsConstructor
+@CrossOrigin(origins = "*")
 public class SectionController {
 
     SectionService sectionService;
