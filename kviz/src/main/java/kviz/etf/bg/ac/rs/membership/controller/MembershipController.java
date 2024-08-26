@@ -2,10 +2,13 @@ package kviz.etf.bg.ac.rs.membership.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import kviz.etf.bg.ac.rs.chatroom.dto.ChatroomDto;
 import kviz.etf.bg.ac.rs.membership.service.MembershipService;
 import kviz.etf.bg.ac.rs.response.PmuResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/membership")
@@ -40,6 +43,19 @@ public class MembershipController {
         PmuResponse<String> pmuResponse = new PmuResponse<>();
         pmuResponse.setIsValid(true);
         pmuResponse.setDto("Success.");
+        return pmuResponse;
+    }
+
+    @GetMapping(value = "/getAllChatroomsByUserId/{userId}")
+    @Operation(summary = "Getting all chatrooms for specific user.")
+    public PmuResponse<List<ChatroomDto>> getAllChatroomsForUser(
+            @PathVariable("userId") Integer userId
+    ){
+        List<ChatroomDto> chatroomDtoList = membershipService.getAllChatroomsForUser(userId);
+
+        PmuResponse<List<ChatroomDto>> pmuResponse = new PmuResponse<>();
+        pmuResponse.setIsValid(true);
+        pmuResponse.setDto(chatroomDtoList);
         return pmuResponse;
     }
 }

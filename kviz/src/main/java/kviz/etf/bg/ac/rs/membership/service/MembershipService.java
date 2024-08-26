@@ -1,13 +1,18 @@
 package kviz.etf.bg.ac.rs.membership.service;
 
 import kviz.etf.bg.ac.rs.chatroom.adapter.ChatroomAdapter;
+import kviz.etf.bg.ac.rs.chatroom.dto.ChatroomDto;
+import kviz.etf.bg.ac.rs.chatroom.model.ChatroomEntity;
 import kviz.etf.bg.ac.rs.chatroom.service.ChatroomService;
 import kviz.etf.bg.ac.rs.membership.model.MembershipEntity;
 import kviz.etf.bg.ac.rs.membership.repository.MembershipRepository;
 import kviz.etf.bg.ac.rs.user.adapter.UserAdapter;
 import kviz.etf.bg.ac.rs.user.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -31,5 +36,13 @@ public class MembershipService {
 
         membershipRepository.delete(membershipEntity);
 
+    }
+
+    public List<ChatroomDto> getAllChatroomsForUser(Integer userId){
+        List<ChatroomEntity> chatroomDtoList = membershipRepository.getAllChatroomsForUser(userId);
+        if(chatroomDtoList == null){
+            return null;
+        }
+        return ChatroomAdapter.convertEntityToDtoList(chatroomDtoList);
     }
 }
