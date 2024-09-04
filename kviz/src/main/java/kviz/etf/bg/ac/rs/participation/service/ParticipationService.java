@@ -48,7 +48,7 @@ public class ParticipationService {
     }
 
     public String addParticipation(ParticipationDto participationDto){
-        participationDto.setUserDto(userService.getUserById(participationDto.getUserDto().getUserId()));
+        participationDto.setUserDto(userService.getUserById(participationDto.getUserDto().getUserid()));
         participationDto.setQuizDto(quizService.getQuizById(participationDto.getQuizDto().getQuizId()));
         ParticipationEntity participationEntity = ParticipationAdapter.convertDtoToEntity(participationDto);
         ParticipationEntity participationEntity1 = participationRepository.save(participationEntity);

@@ -30,11 +30,11 @@ public class UserController {
         return pmuResponse;
     }
 
-    @GetMapping(value = "/authenticateUser")
+    @PostMapping(value = "/authenticateUser")
     @Operation(summary = "Authenticating user.")
     public PmuResponse<UserDto> authenticateUser(@RequestBody UserDto userDto){
 
-        UserDto userDtoResponse = userService.authenticateUser(userDto.getUsername(), userDto.getSurname());
+        UserDto userDtoResponse = userService.authenticateUser(userDto.getUsername(), userDto.getPassword());
 
         PmuResponse<UserDto> pmuResponse = new PmuResponse<>();
         pmuResponse.setIsValid(userDtoResponse != null);

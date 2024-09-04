@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface MembershipRepository extends JpaRepository<MembershipEntity, Integer> {
+public interface MembershipRepository extends JpaRepository<MembershipEntity, MembershipEntity.MembershipId> {
 
     @Query("SELECT m FROM MembershipEntity m WHERE m.user = ?1")
     public List<MembershipEntity> getUsersChatrooms(@Param("userId") Integer userId);

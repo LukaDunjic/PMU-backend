@@ -11,7 +11,7 @@ public class UserAdapter {
     public static UserDto convertEntityToDto(UserEntity userEntity){
 
         UserDto userDto = new UserDto();
-        userDto.setUserId(userEntity.getUserid());
+        userDto.setUserid(userEntity.getUserid());
         userDto.setName(userEntity.getName());
         userDto.setSurname(userEntity.getSurname());
         userDto.setUsername(userEntity.getUsername());
@@ -23,7 +23,7 @@ public class UserAdapter {
     public static UserEntity convertDtoToEntity(UserDto userDto){
 
         UserEntity userEntity = new UserEntity();
-        userEntity.setUserid(userDto.getUserId());
+        userEntity.setUserid(userDto.getUserid());
         userEntity.setUsername(userDto.getUsername());
         userEntity.setPassword(userDto.getPassword());
         userEntity.setName(userDto.getName());

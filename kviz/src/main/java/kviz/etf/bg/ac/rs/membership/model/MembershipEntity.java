@@ -34,8 +34,10 @@ public class MembershipEntity {
     @Embeddable
     @Getter
     @Setter
+    @AllArgsConstructor
+    @NoArgsConstructor
     public static class MembershipId implements Serializable {
-        private Long userId;
-        private Long chatroomId;
+        private Integer userId;
+        private Integer chatroomId;
     }
 }
