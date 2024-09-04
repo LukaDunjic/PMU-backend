@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 public class QuestionDto {
-    Integer qId;
+    Integer questionId;
     String questions;
     SectionDto section;
     List<AnswersDto> answersDto;

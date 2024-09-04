@@ -118,4 +118,20 @@ public class QuestionService {
         return QuestionAdapter.convertEntityToDto(questionsEntity1);
     }
 
+    public QuestionDto editQuestion(QuestionDto questionDto){
+        if (questionDto == null || questionDto.getAnswersDto() == null
+                || questionDto.getSection() == null) {
+            return null;
+        }
+        QuestionsEntity questionsEntity = QuestionAdapter.convertDtoToEntity(questionDto);
+        List<AnswersEntity> answersEntityList = AnswerAdapter.convertDtoToEntityList(questionDto.getAnswersDto());
+        answersEntityList.forEach(element->element.setQuestionEntity(questionsEntity));
+        questionsEntity.setAnswersEntityList(answersEntityList);
+        QuestionsEntity questionsEntity1 = questionRepository.save(questionsEntity);
+
+        questionsEntity1.setAnswersEntityList(answersEntityList);
+
+        return QuestionAdapter.convertEntityToDto(questionsEntity1);
+    }
+
 }

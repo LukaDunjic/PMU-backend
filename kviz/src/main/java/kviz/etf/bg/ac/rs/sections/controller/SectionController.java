@@ -24,16 +24,16 @@ public class SectionController {
         return sectionService.getAllSections();
     }
 
-    @PostMapping(value = "/newSection")
+    @PostMapping(value = "/newSection/{userId}")
     @Operation(summary = "Creating new section")
-    public PmuResponse<SectionDto> createSection(@RequestBody SectionDto sectionDto){
-        return sectionService.addSection(sectionDto);
+    public PmuResponse<SectionDto> createSection(@RequestBody SectionDto sectionDto, @PathVariable("userId") Integer userId){
+        return sectionService.addSection(sectionDto, userId);
     }
 
     @GetMapping(value = "/getUserSection/{userId}")
     @Operation(summary = "Getting section for user")
-    public PmuResponse<List<SectionDto>> getUserSections(Integer userId){
-        return null;
+    public PmuResponse<List<SectionDto>> getUserSections(@PathVariable("userId") Integer userId){
+        return sectionService.getSectionForUser(userId);
     }
 
     @DeleteMapping(value = "/deleteSection")

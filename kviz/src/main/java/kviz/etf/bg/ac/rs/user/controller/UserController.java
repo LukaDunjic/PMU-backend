@@ -4,6 +4,8 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import kviz.etf.bg.ac.rs.response.PmuResponse;
 import kviz.etf.bg.ac.rs.user.dto.UserDto;
+import kviz.etf.bg.ac.rs.user.dto.UserProfileDto;
+import kviz.etf.bg.ac.rs.user.model.UserEntity;
 import kviz.etf.bg.ac.rs.user.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -78,6 +80,19 @@ public class UserController {
         PmuResponse<String> pmuResponse = new PmuResponse<>();
         pmuResponse.setIsValid(message.equals("Success."));
         pmuResponse.setDto(message);
+
+        return pmuResponse;
+    }
+
+    @GetMapping(value = "/getUserInfoForProfile/{userId}")
+    @Operation(summary = "Getting user info by user id.")
+    public PmuResponse<UserProfileDto> getUserInfoForProfile(@PathVariable Integer userId){
+
+        UserProfileDto userEntity = userService.getUserInfoForProfile(userId);
+
+        PmuResponse<UserProfileDto> pmuResponse = new PmuResponse<>();
+        pmuResponse.setIsValid(userEntity != null);
+        pmuResponse.setDto(userEntity);
 
         return pmuResponse;
     }

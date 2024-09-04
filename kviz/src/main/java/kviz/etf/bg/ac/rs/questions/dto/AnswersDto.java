@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class AnswersDto {
     String answer;
-    Integer qId;
+    Integer questionId;
     Boolean isCorrect;
     Integer answerId;
 }

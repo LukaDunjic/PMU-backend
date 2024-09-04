@@ -12,7 +12,7 @@ public class QuestionAdapter {
     public static QuestionDto convertEntityToDto(QuestionsEntity questionsEntity) {
 
         QuestionDto questionDto = new QuestionDto();
-        questionDto.setQId(questionsEntity.getQuestionId());
+        questionDto.setQuestionId(questionsEntity.getQuestionId());
         questionDto.setQuestions(questionsEntity.getQuestionBody());
         questionDto.setAnswersDto(AnswerAdapter.convertEntityToDtoList(questionsEntity.getAnswersEntityList()));
         return questionDto;
@@ -33,6 +33,7 @@ public class QuestionAdapter {
 
         QuestionsEntity questionsEntity = new QuestionsEntity();
 
+        questionsEntity.setQuestionId(questionDto.getQuestionId());
         questionsEntity.setQuestionBody(questionDto.getQuestions());
         questionsEntity.setSection(SectionAdapter.convertDtoToEntity(questionDto.getSection()));
         if(questionDto.getAnswersDto() != null)questionsEntity.setAnswersEntityList(AnswerAdapter.convertDtoToEntityList(questionDto.getAnswersDto()));

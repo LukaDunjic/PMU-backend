@@ -69,4 +69,17 @@ public class QuestionsController {
         pmuResponse.setIsValid(true);
         return pmuResponse;
     }
+
+    @PostMapping(value = "/editQuestion")
+    @Operation(summary = "Edit question")
+    public PmuResponse<QuestionDto> editQuestion(@RequestBody QuestionDto questionDto) {
+
+        QuestionDto questionDto1 = questionService.editQuestion(questionDto);
+
+        PmuResponse<QuestionDto> pmuResponse = new PmuResponse<>();
+        pmuResponse.setDto(questionDto1);
+        pmuResponse.setIsValid(true);
+
+        return pmuResponse;
+    }
 }

@@ -12,7 +12,7 @@ public class AnswerAdapter {
 
         AnswersDto answersDto = new AnswersDto();
 
-        answersDto.setQId(answersEntity.getQuestionEntity().getQuestionId());
+        answersDto.setQuestionId(answersEntity.getQuestionEntity().getQuestionId());
         answersDto.setAnswer(answersEntity.getBody());
         answersDto.setIsCorrect(answersEntity.getIsTrue());
         answersDto.setAnswerId(answersEntity.getAnswerId());
@@ -38,6 +38,7 @@ public class AnswerAdapter {
         answersEntity.setAnswerId(answersDto.getAnswerId());
         answersEntity.setBody(answersDto.getAnswer());
         answersEntity.setIsTrue(answersDto.getIsCorrect());
+
 
         return answersEntity;
     }

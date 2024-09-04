@@ -64,3 +64,10 @@ databaseChangeLog:
         - sqlFile:
             encoding: UTF-8
             path: db/changes/009_create_questions_for_quiz_table.sql
+  - changeSet:
+      id: 010
+      author: byDL
+      changes:
+        - sqlFile:
+            encoding: UTF-8
+            path: db/changes/010_create_section_ownership_table.sql
