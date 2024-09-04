@@ -43,8 +43,8 @@ public class SectionController {
         return sectionService.getSectionForUser(userId);
     }
 
-    @DeleteMapping(value = "/deleteSection")
-    public PmuResponse<SectionDto> deleteSection(Integer sectionId){
+    @DeleteMapping(value = "/deleteSection/{sectionId}")
+    public PmuResponse<SectionDto> deleteSection(@PathVariable("sectionId") Integer sectionId){
         return sectionService.deleteSection(sectionId);
     }
 }
