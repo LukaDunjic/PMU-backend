@@ -5,6 +5,7 @@ import kviz.etf.bg.ac.rs.section_ownership.SectionOwnershipEntity;
 import kviz.etf.bg.ac.rs.section_ownership.SectionOwnershipRepository;
 import kviz.etf.bg.ac.rs.sections.adapter.SectionAdapter;
 import kviz.etf.bg.ac.rs.sections.dto.SectionDto;
+import kviz.etf.bg.ac.rs.sections.dto.SectionScreenDto;
 import kviz.etf.bg.ac.rs.sections.model.SectionEntity;
 import kviz.etf.bg.ac.rs.sections.repository.SectionRepository;
 import kviz.etf.bg.ac.rs.user.model.UserEntity;
@@ -12,6 +13,7 @@ import kviz.etf.bg.ac.rs.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -56,8 +58,23 @@ public class SectionService {
         return pmuResponse;
     }
 
-    public PmuResponse<List<SectionDto>> getSectionForUser(Integer userId){
+    public PmuResponse<List<SectionScreenDto>> getSectionForUserScreen(Integer userId){
 
+        List<SectionEntity> sectionEntityList = sectionOwnershipRepository.getSectionsByUserId(userId);
+        List<SectionDto> sectionDtoList = SectionAdapter.convertEntityToDtoList(sectionEntityList);
+        List<SectionScreenDto> sectionScreenDtoList = new ArrayList<>();
+
+        sectionDtoList.forEach(element->{
+            sectionScreenDtoList.add(new SectionScreenDto(element, sectionRepository.getAllQuestionsForSection(element.getSectionId())));
+        });
+
+        PmuResponse<List<SectionScreenDto>> pmuResponse = new PmuResponse<>();
+        pmuResponse.setIsValid(!sectionEntityList.isEmpty());
+        pmuResponse.setDto(sectionScreenDtoList);
+        return pmuResponse;
+    }
+
+    public PmuResponse<List<SectionDto>> getSectionForUser(Integer userId) {
         List<SectionEntity> sectionEntityList = sectionOwnershipRepository.getSectionsByUserId(userId);
 
         PmuResponse<List<SectionDto>> pmuResponse = new PmuResponse<>();
