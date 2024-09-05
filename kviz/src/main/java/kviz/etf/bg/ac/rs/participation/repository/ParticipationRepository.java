@@ -19,5 +19,10 @@ public interface ParticipationRepository extends JpaRepository<ParticipationEnti
     @Query("SELECT p.user.username, p.result FROM ParticipationEntity p WHERE p.quiz.quizId = ?1")
     public HashMap<String, Float> getResultByQuiz(@Param("quizId") Integer quizId);
 
+    @Query("select count(p) from ParticipationEntity p where p.user.userid=?1")
+    public Integer getNumOfGames(@Param("userId") Integer userId);
+
+    @Query("select sum(p.result) from ParticipationEntity p where p.user.userid=?1")
+    public Float getSumResults(@Param("userId") Integer userId);
 
 }

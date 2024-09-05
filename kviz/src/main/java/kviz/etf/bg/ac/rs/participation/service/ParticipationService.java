@@ -57,4 +57,16 @@ public class ParticipationService {
         }
         return "Success.";
     }
+
+    public Integer getNumOfGames(Integer userId) {
+        if(userId == null || userId<=0)return null;
+
+        return participationRepository.getNumOfGames(userId);
+    }
+
+    public Float getSumResults(Integer userId){
+        if(userId == null || userId<=0)return null;
+
+        return participationRepository.getSumResults(userId);
+    }
 }

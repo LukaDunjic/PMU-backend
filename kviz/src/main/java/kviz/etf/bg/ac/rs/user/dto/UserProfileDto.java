@@ -7,4 +7,6 @@ public class UserProfileDto {
     private UserDto userDto;
     private Integer chatroomCount;
     private Integer sectionCount;
+    private Integer rate;
+    private Integer points;
 }

@@ -1,5 +1,6 @@
 package kviz.etf.bg.ac.rs.user.service;
 
+import kviz.etf.bg.ac.rs.participation.repository.ParticipationRepository;
 import kviz.etf.bg.ac.rs.section_ownership.SectionOwnershipEntity;
 import kviz.etf.bg.ac.rs.section_ownership.SectionOwnershipRepository;
 import kviz.etf.bg.ac.rs.sections.model.SectionEntity;
@@ -20,6 +21,7 @@ public class UserService {
 
     final UserRepository userRepository;
     final SectionOwnershipRepository sectionOwnershipRepository;
+    final ParticipationRepository participationRepository;
     public UserDto authenticateUser(String username, String password){
         UserEntity userEntity = userRepository.authenticateUser(username, password);
         if(userEntity != null){
@@ -80,9 +82,13 @@ public class UserService {
         UserProfileDto userProfileDto = new UserProfileDto();
         userProfileDto.setUserDto(UserAdapter.convertEntityToDto(userEntity));
         userProfileDto.setChatroomCount(userEntity.getChatroomEntityList().size());
-        userProfileDto.setSectionCount(sectionEntityList.size());//TODO:promeni kad dodas ownership nad sekcijom
-        //get broj sekcija koje je napravio to kasnije
-        //get chatroom owner
+        userProfileDto.setSectionCount(sectionEntityList.size());
+
+        Integer num = participationRepository.getNumOfGames(userId);
+        Float sum = participationRepository.getSumResults(userId);
+        userProfileDto.setPoints((int) (sum*10));
+        userProfileDto.setRate((int) (sum/num));
+
 
         return userProfileDto;
     }

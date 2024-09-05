@@ -67,4 +67,26 @@ public class ParticipationController {
 
         return pmuResponse;
     }
+
+    @GetMapping(value = "/numOfQuizForUser/{userId}")
+    @Operation(summary = "Returning num of games played.")
+    public PmuResponse<Integer> getNumOfGames(@PathVariable("userId") Integer userId){
+
+        Integer numOfGames = participationService.getNumOfGames(userId);
+        PmuResponse<Integer> pmuResponse = new PmuResponse<>();
+        pmuResponse.setIsValid(numOfGames!=null);
+        pmuResponse.setDto(numOfGames);
+        return null;
+    }
+
+    @GetMapping(value = "/getSumOfResults/{userId}")
+    @Operation(summary = "Returning num of games played.")
+    public PmuResponse<Float> getSumOfResults(@PathVariable("userId") Integer userId){
+
+        Float sumOfGames = participationService.getSumResults(userId);
+        PmuResponse<Float> pmuResponse = new PmuResponse<>();
+        pmuResponse.setIsValid(sumOfGames!=null);
+        pmuResponse.setDto(sumOfGames);
+        return null;
+    }
 }
