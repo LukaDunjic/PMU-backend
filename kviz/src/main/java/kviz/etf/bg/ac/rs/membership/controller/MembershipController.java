@@ -37,6 +37,20 @@ public class MembershipController {
         return pmuResponse;
     }
 
+    @PostMapping(value = "/joinChatroomByUsername/{username}/{chatroomId}")
+    @Operation(summary = "Adding new membership.")
+    public PmuResponse<String> joinChatroomByUsername(
+            @PathVariable("username") String username,
+            @PathVariable("chatroomId") Integer chatroomId
+    ){
+        membershipService.joinChatroomByUsername(username, chatroomId);
+
+        PmuResponse<String> pmuResponse = new PmuResponse<>();
+        pmuResponse.setIsValid(true);
+        pmuResponse.setDto("Success.");
+        return pmuResponse;
+
+    }
     @DeleteMapping(value = "/leaveChatroom/{userId}/{chatroomId}")
     @Operation(summary = "Deleting membership.")
     public PmuResponse<String> leaveChatroom(
