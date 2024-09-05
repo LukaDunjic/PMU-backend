@@ -71,3 +71,17 @@ databaseChangeLog:
         - sqlFile:
             encoding: UTF-8
             path: db/changes/010_create_section_ownership_table.sql
+  - changeSet:
+      id: 011
+      author: byDL
+      changes:
+        - sqlFile:
+            encoding: UTF-8
+            path: db/changes/011_create_message_table.sql
+  - changeSet:
+      id: 012
+      author: byDL
+      changes:
+        - sqlFile:
+            encoding: UTF-8
+            path: db/changes/012_alter_table_section_ownership.sql
