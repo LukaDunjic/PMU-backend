@@ -21,4 +21,7 @@ public interface MembershipRepository extends JpaRepository<MembershipEntity, Me
 
     @Query("SELECT m.chatroom FROM MembershipEntity m WHERE m.user.userid = ?1")
     public List<ChatroomEntity> getAllChatroomsForUser(@Param("userId") Integer userId);
+
+    @Query("SELECT count(m) FROM MembershipEntity m WHERE m.chatroom.chatroomId = ?1")
+    public Integer getNumOfMembershipForChatroomId(@Param("chatroomId") Integer chatroomId);
 }
